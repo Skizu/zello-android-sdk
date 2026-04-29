@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS := -Wno-psabi
 LOCAL_CFLAGS += -fvisibility=hidden -ffunction-sections -fdata-sections
 LOCAL_CFLAGS += -DDLL_PUBLIC='__attribute__((visibility("default")))'
-LOCAL_CFLAGS += -fno-stack-protector
+LOCAL_CFLAGS += -fstack-protector-strong
 LOCAL_LDFLAGS += -Wl,--cref,--gc-sections
 
 ifeq ($(TARGET_ARCH),arm)

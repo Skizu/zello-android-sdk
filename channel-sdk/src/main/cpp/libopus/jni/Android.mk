@@ -16,7 +16,8 @@ LOCAL_CFLAGS += \
 	-Drestrict='' -DOPUS_BUILD -DUSE_ALLOCA -DHAVE_LRINT -DHAVE_LRINTF -D__EMX__ \
 	-fvisibility=hidden -ffunction-sections -fdata-sections \
 	-DDLL_PUBLIC='__attribute__((visibility("default")))' \
-	-fno-stack-protector -fno-math-errno -Wno-psabi
+	-fstack-protector-strong -fno-math-errno -Wno-psabi \
+	-Wno-implicit-function-declaration
 LOCAL_LDLIBS := -llog
 LOCAL_LDFLAGS += -Wl,--cref,--gc-sections
 
