@@ -11,6 +11,6 @@ internal interface Geocoder {
 
 internal class AndroidGeocoder(private val wrapped: android.location.Geocoder) : Geocoder {
 	override fun getFromLocation(latitude: Double, longitude: Double, maxResults: Int): List<Address> {
-		return wrapped.getFromLocation(latitude, longitude, maxResults)
+		return wrapped.getFromLocation(latitude, longitude, maxResults) ?: emptyList()
 	}
 }
