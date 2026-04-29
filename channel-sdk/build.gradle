@@ -9,11 +9,13 @@ plugins {
 }
 
 android {
-	compileSdkVersion 31
+	namespace = 'com.zello.channel.sdk'
+	compileSdkVersion 35
 	defaultConfig {
+		buildToolsVersion = "35.0.0"
 		minSdkVersion 21
-		targetSdkVersion 31
-		ndkVersion = "24.0.8215888"
+		targetSdkVersion 35
+		ndkVersion = "27.3.13750724"
 		versionCode 1
 		versionName "0.5.3"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -40,13 +42,12 @@ android {
 	}
 	kotlinOptions {
 		jvmTarget = JavaVersion.VERSION_11
-		freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
-		freeCompilerArgs += "-Xjvm-default=enable"
+		freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+		freeCompilerArgs += "-Xjvm-default=all"
 	}
 
 	// Library for testing
 	useLibrary 'android.test.mock'
-	buildToolsVersion '32.0.0'
 }
 
 task sdkDocumentation(type: DokkaTask) {
@@ -84,9 +85,9 @@ afterEvaluate {
 				artifact sourcesJar
 				artifact javadocJar
 
-				groupId 'com.zello'
-				artifactId 'zello-channel-sdk'
-				version android.defaultConfig.versionName
+				groupId = 'com.zello'
+				artifactId = 'zello-channel-sdk'
+				version = android.defaultConfig.versionName
 
 				pom {
 					packaging = "aar"

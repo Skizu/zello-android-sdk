@@ -20,6 +20,9 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+# Ignore warnings about missing Java 9+ classes that are only used for optimization
+-dontwarn java.lang.invoke.StringConcatFactory
+
 -keep public class * extends android.content.BroadcastReceiver
 -keep public class com.zello.channel.sdk.BuildConfig { *; }
 
